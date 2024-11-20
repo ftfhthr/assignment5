@@ -1,10 +1,11 @@
 import movie1 from "../assets/movie1.jpg"
 import movie2 from "../assets/movie2.jpg"
 import movie3 from "../assets/movie3.jpg"
+import "./Feature.css"
 
 const Feature = () => {
     return (
-        <div>
+        <div className="feature">
             <h2>Top 3 Movies</h2>
             <div class="movies">
                 <img src={movie1} alt="Hitman movie cover" />

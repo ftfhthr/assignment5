@@ -1,6 +1,8 @@
+import "./Footer.css"
+
 const Footer = () => {
     return (
-        <div>
+        <div className="footer">
             <p>Questions? Call +1 (123) 456-7890</p>
             <div class="footer-links">
                 <a href="">Contact Us</a>

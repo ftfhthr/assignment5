@@ -1,8 +1,9 @@
 import background from "../assets/bkg.jpg";
+import "./Hero.css";
 
 const Hero = () => {
     return (
-        <div>
+        <div className="hero">
             <img src={background} alt="lots of movies" />
             <div class="hero-content">
                 <h1>Unlimited movies, TV shows, and more</h1>
