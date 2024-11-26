@@ -4,10 +4,12 @@ import "./Header.css"
 const Header = () => {
     return (
         <div className="header">
-            <img src={logo} alt="321 Movies Logo" />
+            <a href="/">
+                <img src={logo} alt="321 Movies Logo" />
+            </a>
             <div className="navbar-container">
-                <a href="">Log In</a>
-                <a href="">Sign Up</a>
+                <a href="/login">Log In</a>
+                <a href="/register">Sign Up</a>
             </div>
         </div>
     );
