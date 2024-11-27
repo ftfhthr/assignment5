@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
 import "./Feature.css"
@@ -19,9 +19,6 @@ const Feature = () => {
             }
         )
         setMovieData(data.data.results);
-        console.log(data);
-        console.log(movieData);
-        console.log(movieData[Math.floor(Math.random() * movieData.length)]);
         setMovie1(movieData[Math.floor(Math.random() * movieData.length)]);
         setMovie2(movieData[Math.floor(Math.random() * movieData.length)]);
         setMovie3(movieData[Math.floor(Math.random() * movieData.length)]);

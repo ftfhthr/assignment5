@@ -4,6 +4,7 @@ import RegisterView from "./views/RegisterView.jsx"
 import MoviesView from "./views/MoviesView.jsx"
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import GenreView from "./views/GenreView.jsx"
 
 function App() {
 	return (
@@ -12,7 +13,9 @@ function App() {
 				<Route path="/" element={<HomeView />} />
 				<Route path="/login" element={<LoginView />} />
 				<Route path="/register" element={<RegisterView />} />
-				<Route path="/movies" element={<MoviesView />} />
+				<Route path="/movies" element={<MoviesView />}>
+					<Route path="genre/:id" element={<GenreView />} />
+				</Route>
 			</Routes>
 		</BrowserRouter>
 	)
