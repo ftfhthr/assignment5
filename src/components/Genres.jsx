@@ -1,4 +1,5 @@
-const Genres = () => {
+const Genres = (props) => {
+    console.log(props.genresList);
     return (
         <div>
             <a href="">Action</a>
