@@ -2,6 +2,7 @@ import Header from "../components/Header.jsx"
 import Footer from "../components/Footer.jsx"
 import Genres from "../components/Genres.jsx"
 import { Outlet } from "react-router-dom";
+import "./MoviesView.css"
 
 const MoviesView = () => {
     const genresList = [
@@ -50,8 +51,10 @@ const MoviesView = () => {
     return (
         <div>
             <Header />
-            <Genres genresList={genresList}/>
-            <Outlet />
+            <div className="movies-view">
+                <Genres genresList={genresList}/>
+                <Outlet />
+            </div>
             <Footer />
         </div>
     )
