@@ -22,6 +22,7 @@
 
 .movies img {
     margin: 20px;
+    min-width: 0;
 }
 
 /* portrait tablets */
