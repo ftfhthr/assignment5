@@ -10,9 +10,9 @@ const Feature = () => {
     const [movie3, setMovie3] = useState({});
     const [done, setDone] = useState(false);
 
-    async function getStuff() {
-        const data = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=a05d4cdf7f59a8d24f88e67b04c3059c")
-        setMovieData(data.data.results);
+    async function getMovies() {
+        const movies = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=a05d4cdf7f59a8d24f88e67b04c3059c")
+        setMovieData(movies.data.results);
         setMovie1(movieData[Math.floor(Math.random() * movieData.length)]);
         setMovie2(movieData[Math.floor(Math.random() * movieData.length)]);
         setMovie3(movieData[Math.floor(Math.random() * movieData.length)]);
@@ -20,22 +20,18 @@ const Feature = () => {
     };
     
     useEffect(() => {
-        getStuff();
+        getMovies();
     }, [done]);
 
 
     return (
         <div className="feature">
-            <h2>Top 3 Movies</h2>
-                {/* {done === false ? (
-                    <h1>Loading...</h1>
-                ) : ( */}
-                    <div className="movies">
-                        <img src={`https://image.tmdb.org/t/p/w500${movie1?.poster_path}`} alt="random movie 1" />
-                        <img src={`https://image.tmdb.org/t/p/w500${movie2?.poster_path}`} alt="random movie 2" />
-                        <img src={`https://image.tmdb.org/t/p/w500${movie3?.poster_path}`} alt="random movie 3" />
-                    </div>
-                {/* )} */}
+            <h2>Now Playing</h2>
+                <div className="movies">
+                    <img src={`https://image.tmdb.org/t/p/w500${movie1?.poster_path}`} alt="random movie 1" />
+                    <img src={`https://image.tmdb.org/t/p/w500${movie2?.poster_path}`} alt="random movie 2" />
+                    <img src={`https://image.tmdb.org/t/p/w500${movie3?.poster_path}`} alt="random movie 3" />
+                </div>
         </div>
     )
 }
