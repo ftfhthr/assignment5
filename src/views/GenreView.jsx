@@ -23,7 +23,9 @@ const GenreView = () => {
         <div>
             <h1>genre</h1>
             {movieData.map((movie) => (
-              <img key={movie.id} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />  
+                <a href={`/movies/details/${movie.id}`}>
+                    <img key={movie.id} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />  
+                </a>
             ))}
             <button>Previous Page</button>
             <button>Next Page</button>
