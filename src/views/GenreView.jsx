@@ -5,13 +5,42 @@ import { useParams } from "react-router-dom";
 
 const GenreView = () => {
     const [movieData, setMovieData] = useState([]);
+    const [totalPages, setTotalPages] = useState(0);
+    const [page, setPage] = useState(1);
     const [done, setDone] = useState(false);
     const params = useParams();
 
-    async function getMovies() {
-        const movies = await axios.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${params.genre_id}&api_key=a05d4cdf7f59a8d24f88e67b04c3059c`);
+    const getMovies = async () => {
+        const movies = await axios.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${params.genre_id}&api_key=a05d4cdf7f59a8d24f88e67b04c3059c`);
         setMovieData(movies.data.results);
+        setTotalPages(movies.data.total_pages);
+        // tmdb maxes out at 500 pages
+        if (totalPages >= 500) {
+            setTotalPages(500);
+        }
         setDone(true);
+    }
+
+    const movePage = (x) => {
+        setDone(false);
+        if (page+x >= totalPages) {
+            setPage(totalPages);
+        } else if (page+x <= 1) {
+            setPage(1);
+        } else {
+            setPage(page+x);
+        }
+        getMovies();
+    }
+
+    const setCurrentPage = (x) => {
+        setDone(false);
+        if (x >= totalPages) {
+            setPage(totalPages);
+        } else {
+            setPage(x);
+        }
+        getMovies();
     }
 
     useEffect(() => {
@@ -22,12 +51,17 @@ const GenreView = () => {
         <div>
             <h1>genre</h1>
             {movieData.map((movie) => (
-                <a href={`/movies/details/${movie.id}`}>
-                    <img key={movie.id} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />  
+                <a key={movie.id} href={`/movies/details/${movie.id}`}>
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />  
                 </a>
             ))}
-            <button>Previous Page</button>
-            <button>Next Page</button>
+            <div>
+                <button type="submit" onClick={() => setCurrentPage(1)}>1</button>
+                <button type="submit" onClick={() => movePage(-1)}>{"<"}</button>
+                <span>{page}</span>
+                <button type="submit" onClick={() => movePage(1)}>{">"}</button>
+                <button type="submit" onClick={() => setCurrentPage(totalPages)}>{totalPages}</button>
+            </div>
         </div>
     )
 }

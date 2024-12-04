@@ -6,6 +6,7 @@ const Genres = (props) => {
             {props.genresList.map((genre) => (
                 <a key={genre.id} href={`/movies/genre/${genre.id}`}>{genre.genre}</a>
             ))}
+            <a href="/">Log Out</a>
         </div>
     )
 }
