@@ -8,8 +8,8 @@ const LoginView = () => {
     const [pass, setPass] = useState("");
     const navigate = useNavigate();
 
-    const login = (event) => {
-        event.preventDefault();
+    const login = (e) => {
+        e.preventDefault();
         if (pass == "iloveyou") {
             navigate("/movies");
         } else {
