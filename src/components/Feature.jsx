@@ -4,6 +4,7 @@ import axios from "axios"
 import "./Feature.css"
 
 const Feature = () => {
+    const KEY = import.meta.env.VITE_TMDB_KEY;
     const [movieData, setMovieData] = useState([]);
     const [movie1, setMovie1] = useState({});
     const [movie2, setMovie2] = useState({});
@@ -11,7 +12,7 @@ const Feature = () => {
     const [done, setDone] = useState(false);
 
     async function getMovies() {
-        const movies = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=a05d4cdf7f59a8d24f88e67b04c3059c")
+        const movies = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=${import.meta.env.VITE_TMDB_KEY}`)
         setMovieData(movies.data.results);
         setMovie1(movieData[Math.floor(Math.random() * movieData.length)]);
         setMovie2(movieData[Math.floor(Math.random() * movieData.length)]);

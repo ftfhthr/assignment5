@@ -12,7 +12,7 @@ const GenreView = () => {
     const params = useParams();
 
     const getMovies = async () => {
-        const movies = await axios.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${params.genre_id}&api_key=a05d4cdf7f59a8d24f88e67b04c3059c`);
+        const movies = await axios.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${params.genre_id}&api_key=${import.meta.env.VITE_TMDB_KEY}`);
         setMovieData(movies.data.results);
         setTotalPages(movies.data.total_pages);
         // tmdb maxes out at 500 pages

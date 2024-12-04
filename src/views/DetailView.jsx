@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./DetailView.css"
 
 const DetailView = () => {
 	const [movieData, setMovieData] = useState({});
@@ -10,8 +11,8 @@ const DetailView = () => {
 	const params = useParams();
 
 	const getMovieData = async () => {
-		const movieDetails = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?language=en-US&api_key=a05d4cdf7f59a8d24f88e67b04c3059c`)
-		const trailerData = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US&api_key=a05d4cdf7f59a8d24f88e67b04c3059c`)
+		const movieDetails = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?language=en-US&api_key=${import.meta.env.VITE_TMDB_KEY}`)
+		const trailerData = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US&api_key=${import.meta.env.VITE_TMDB_KEY}`)
 		setMovieData(movieDetails.data);
 		setVideos(trailerData.data.results);
 		setDone(true);
@@ -29,7 +30,7 @@ const DetailView = () => {
 	}, [done])
 
 	return (
-		<div>
+		<div className="detail-view">
 			<h2>{movieData.title}</h2>
 			<div>
 				<h3>Original Title:</h3>
