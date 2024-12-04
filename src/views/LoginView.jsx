@@ -20,13 +20,15 @@ const LoginView = () => {
     return (
         <div>
             <Header />
-            <form onSubmit={(e) => { login(e) }}>
-                <label htmlFor="email">Email:</label>
-                <input type="email" name="email" required />
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password" value={pass} onChange={(event) => { setPass( event.target.value ) }} required />
-                <input type="submit" value={"Log In"} required />
-            </form>
+            <div className="form-container">
+                <form onSubmit={(e) => { login(e) }}>
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" name="email" required />
+                    <label htmlFor="password">Password:</label>
+                    <input type="password" name="password" value={pass} onChange={(event) => { setPass( event.target.value ) }} required />
+                    <input type="submit" value={"Log In"} required />
+                </form>
+            </div>
             <Footer />
         </div>
     )

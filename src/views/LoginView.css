@@ -1,8 +1,15 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px;
+}
+
 form {
     width: 300px;
-    margin: 20px 0px 20px;
-    padding: 20px;
-    box-shadow: #ddd 1px 1px 10px 1px;
+    margin: 30px 0px 30px;
+    padding: 30px;
+    box-shadow: #444 1px 1px 10px 1px;
     padding-bottom: 70px;
 }
 
@@ -10,11 +17,8 @@ input {
     width: 100%;
     height: 30px;
     border-radius: 3px;
-}
-
-input[type=text] {
+    margin: 10px 0px 30px;
     border: 1px solid #bbb;
-    margin: 10px 0px 10px;
 }
 
 .result {
@@ -22,8 +26,9 @@ input[type=text] {
 }
 
 input[type=submit] {
-    background-color: rgb(0, 121, 255);
+    background-color: red;
     color: white;
     border: none;
     cursor: pointer;
+    margin: 0;
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom";
+import "./GenreView.css"
 
 const GenreView = () => {
     const [movieData, setMovieData] = useState([]);
@@ -48,8 +49,7 @@ const GenreView = () => {
     }, [done]);
 
     return (
-        <div>
-            <h1>genre</h1>
+        <div className="genre-view">
             {movieData.map((movie) => (
                 <a key={movie.id} href={`/movies/details/${movie.id}`}>
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />  
