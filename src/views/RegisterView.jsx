@@ -1,7 +1,7 @@
-import Header from "../components/Header.jsx"
-import Footer from "../components/Footer.jsx"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header.jsx"
+import Footer from "../components/Footer.jsx"
 
 const RegisterView = () => {
     const [pass1, setPass1] = useState("");

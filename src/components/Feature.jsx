@@ -1,10 +1,8 @@
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 import "./Feature.css"
 
 const Feature = () => {
-    const KEY = import.meta.env.VITE_TMDB_KEY;
     const [movieData, setMovieData] = useState([]);
     const [movie1, setMovie1] = useState({});
     const [movie2, setMovie2] = useState({});
@@ -19,7 +17,7 @@ const Feature = () => {
         setMovie3(movieData[Math.floor(Math.random() * movieData.length)]);
         setDone(true);
     };
-    
+
     useEffect(() => {
         getMovies();
     }, [done]);
@@ -28,11 +26,11 @@ const Feature = () => {
     return (
         <div className="feature">
             <h2>Now Playing</h2>
-                <div className="movies">
-                    <img src={`https://image.tmdb.org/t/p/w500${movie1?.poster_path}`} alt="random movie 1" />
-                    <img src={`https://image.tmdb.org/t/p/w500${movie2?.poster_path}`} alt="random movie 2" />
-                    <img src={`https://image.tmdb.org/t/p/w500${movie3?.poster_path}`} alt="random movie 3" />
-                </div>
+            <div className="movies">
+                <img src={`https://image.tmdb.org/t/p/w500${movie1?.poster_path}`} alt="random movie 1" />
+                <img src={`https://image.tmdb.org/t/p/w500${movie2?.poster_path}`} alt="random movie 2" />
+                <img src={`https://image.tmdb.org/t/p/w500${movie3?.poster_path}`} alt="random movie 3" />
+            </div>
         </div>
     )
 }

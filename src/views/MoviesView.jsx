@@ -1,7 +1,7 @@
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header.jsx"
 import Footer from "../components/Footer.jsx"
 import Genres from "../components/Genres.jsx"
-import { Outlet } from "react-router-dom";
 import "./MoviesView.css"
 
 const MoviesView = () => {

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react"
+import { useState, useEffect } from "react";
 import axios from "axios"
 import { useParams } from "react-router-dom";
 import "./GenreView.css"
@@ -24,12 +23,12 @@ const GenreView = () => {
 
     const movePage = (x) => {
         setDone(false);
-        if (page+x >= totalPages) {
+        if (page + x >= totalPages) {
             setPage(totalPages);
-        } else if (page+x <= 1) {
+        } else if (page + x <= 1) {
             setPage(1);
         } else {
-            setPage(page+x);
+            setPage(page + x);
         }
         getMovies();
     }
@@ -52,7 +51,7 @@ const GenreView = () => {
         <div className="genre-view">
             {movieData.map((movie) => (
                 <a key={movie.id} href={`/movies/details/${movie.id}`}>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />  
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
                 </a>
             ))}
             <div>
