@@ -27,8 +27,8 @@ const MoviesView = () => {
             id: 14
         },
         {
-            genre: "TV Movie",
-            id: 10770
+            genre: "War",
+            id: 10752
         },
         {
             genre: "Animation",
